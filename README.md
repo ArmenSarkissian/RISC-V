@@ -231,5 +231,5 @@ The core includes a comprehensive top-level testbench (`tb/tb_rv32i_top.v`) that
 Distributed under the **MIT License**. See `LICENSE` for more information.
 
 - **Author**: Principal FPGA / Hardware Design Engineer
-- **GitHub**: [@your-username](https://github.com/your-username)
-- **LinkedIn**: [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)
+- **GitHub**: [@armensark2006-ai](https://github.com/armensark2006-ai)
+- **LinkedIn**: [linkedin.com/in/armen-sarkissian](https://www.linkedin.com/in/armen-sarkissian/)
