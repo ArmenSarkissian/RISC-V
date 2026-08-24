@@ -166,8 +166,8 @@ To simulate the processor core locally using Icarus Verilog:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/rv32i-fpga-core.git
-cd rv32i-fpga-core
+git clone https://github.com/armensark2006-ai/RISC-V
+cd RISC-V
 
 # Compile the Verilog RTL modules and testbench
 iverilog -o sim/rv32i_sim rtl/*.v tb/tb_rv32i_top.v
@@ -230,6 +230,6 @@ The core includes a comprehensive top-level testbench (`tb/tb_rv32i_top.v`) that
 
 Distributed under the **MIT License**. See `LICENSE` for more information.
 
-- **Author**: Principal FPGA / Hardware Design Engineer
+
 - **GitHub**: [@armensark2006-ai](https://github.com/armensark2006-ai)
 - **LinkedIn**: [linkedin.com/in/armen-sarkissian](https://www.linkedin.com/in/armen-sarkissian/)
