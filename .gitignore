@@ -1,0 +1,20 @@
+# ModelSim / EDA simulation files
+simulation/
+rtl_work/
+work/
+transcript
+*.wlf
+*.ini
+
+# Quartus build databases and outputs
+db/
+incremental_db/
+output_files/
+*.qws
+*.rpt
+*.summary
+*.done
+*.pin
+*.sof
+*.pof
+*.smsg
