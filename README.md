@@ -140,14 +140,13 @@ The core implements a single-cycle von Neumann architecture with dedicated, infe
 
 Synthesized using **Intel Quartus Prime Lite Edition v21.1** targeting an **Intel Cyclone IV E (EP4CE115F29C7)** FPGA:
 
-| Metric | Measured Value | Device Limit | Utilization |
+| Metric | Measured Value | Device Limit (EP4CE115) | Utilization |
 | :--- | :--- | :--- | :--- |
-| **Logic Elements (LEs)** | ~1,450 | 114,480 | ~1.3% |
-| **Combinational ALUTs / LEs** | ~1,420 | 114,480 | ~1.2% |
-| **Dedicated Logic Registers** | ~1,024 | 114,480 | ~0.9% |
-| **Total Memory Bits (BRAM)** | 65,536 bits (8 KB) | 3,981,312 bits | ~1.6% |
-| **M9K Memory Blocks** | 8 | 432 | ~1.8% |
-| **Maximum Frequency ($f_{MAX}$)** | **52.4 MHz** | N/A | Calculated by TimeQuest |
+| **Logic Elements (LEs)** | **398** | 114,480 | ~0.35% |
+| **Dedicated Logic Registers** | **119** | 114,480 | ~0.10% |
+| **Total Memory Bits (BRAM)** | **33,408 bits** | 3,981,312 bits | ~0.84% |
+| **M9K Memory Blocks** | **6** | 432 | ~1.39% |
+| **Maximum Frequency ($f_{\text{MAX}}$)** | **82.42 MHz** | N/A | TimeQuest (Slow 85°C Model) |
 
 > **Optimization Note**: By structuring `instruction_mem` and `data_mem` to latch addresses on `posedge clk`, Quartus automatically infers hardware **M9K embedded memory blocks**, preserving thousands of Logic Elements that would otherwise be wasted on register arrays.
 
