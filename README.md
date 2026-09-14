@@ -230,5 +230,5 @@ The core includes a comprehensive top-level testbench (`tb/tb_rv32i_top.v`) that
 Distributed under the **MIT License**. See `LICENSE` for more information.
 
 
-- **GitHub**: [@armensark2006-ai](https://github.com/armensark2006-ai)
+- **GitHub**: [@ArmenSarkissian](https://github.com/ArmensSarkissian)
 - **LinkedIn**: [linkedin.com/in/armen-sarkissian](https://www.linkedin.com/in/armen-sarkissian/)
