@@ -1,20 +1,22 @@
-# ModelSim / EDA simulation files
-simulation/
-rtl_work/
-work/
-transcript
-*.wlf
-*.ini
-
-# Quartus build databases and outputs
+# Quartus synthesis build files
 db/
 incremental_db/
 output_files/
-*.qws
 *.rpt
 *.summary
+*.smsg
+*.qws
 *.done
 *.pin
-*.sof
-*.pof
-*.smsg
+
+# ModelSim & EDA simulation artifacts
+work/
+*.cr.mti
+*.mpf
+*.vcd
+*.wlf
+transcript
+
+# Toolchain build artifacts
+*.elf
+*.bin
