@@ -20,3 +20,6 @@ transcript
 # Toolchain build artifacts
 *.elf
 *.bin
+
+simulation/
+*.vhd
