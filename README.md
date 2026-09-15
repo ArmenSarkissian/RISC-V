@@ -165,7 +165,7 @@ To simulate the processor core locally using Icarus Verilog:
 
 ```bash
 # Clone the repository
-git clone https://github.com/armensark2006-ai/RISC-V
+git clone https://github.com/ArmenSarkissian/RISC-V
 cd RISC-V
 
 # Compile the Verilog RTL modules and testbench
