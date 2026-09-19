@@ -1,4 +1,4 @@
-// Top-Level RISC-V Wrapper
+//Top-Level RISC-V Wrapper
 
 module rv32i_top (
     input  wire        clk,
@@ -34,7 +34,7 @@ module rv32i_top (
     wire        lt;
     wire        ltu;
 
-    assign pc_out        = pc;
+    assign pc_out         = pc;
     assign alu_result_out = alu_result;
 
     // Address calculations
@@ -130,39 +130,16 @@ module rv32i_top (
         .ltu      (ltu)
     );
 
-    // Byte Enable Generation for SB, SH, SW
-    reg [3:0] byte_enable;
-    always @(*) begin
-        case (funct3)
-            3'b000: begin // SB
-                case (alu_result[1:0])
-                    2'b00: byte_enable = 4'b0001;
-                    2'b01: byte_enable = 4'b0010;
-                    2'b10: byte_enable = 4'b0100;
-                    2'b11: byte_enable = 4'b1000;
-                endcase
-            end
-            3'b001: begin // SH
-                case (alu_result[1])
-                    1'b0:  byte_enable = 4'b0011;
-                    1'b1:  byte_enable = 4'b1100;
-                endcase
-            end
-            3'b010:  byte_enable = 4'b1111; // SW
-            default: byte_enable = 4'b1111;
-        endcase
-    end
-
     data_mem #(
         .ADDR_WIDTH (10),
         .MEM_SIZE   (1024)
-    ) mem (
-        .clk         (clk),
-        .mem_write   (mem_write),
-        .byte_enable (byte_enable),
-        .addr        (alu_result),
-        .write_data  (rs2_data),
-        .read_data   (mem_read_data)
+    ) dmem (
+        .clk        (clk),
+        .mem_write  (mem_write),
+        .mem_read   (mem_read),
+        .addr       (alu_result[11:2]),
+        .write_data (rs2_data),
+        .read_data  (mem_read_data)
     );
 
     assign rd_data = (mem_to_reg == 2'b01) ? mem_read_data :

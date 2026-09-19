@@ -1,0 +1,47 @@
+`timescale 1ns / 1ps
+
+module tb_rv32i_top;
+
+    // Testbench Signals
+    reg        clk;
+    reg        rst_n;
+    wire [31:0] pc_out;
+    wire [31:0] alu_result_out;
+
+    // Instantiate Top-Level Core (DUT)
+    rv32i_top uut (
+        .clk            (clk),
+        .rst_n          (rst_n),
+        .pc_out         (pc_out),
+        .alu_result_out (alu_result_out)
+    );
+
+    // Clock Generation (100 MHz -> 10ns period)
+    always #5 clk = ~clk;
+
+    initial begin
+        // Initialize Inputs
+        clk   = 0;
+        rst_n = 0;
+
+        // Preload Machine Code Program into Instruction Memory
+        // Ensure 'program.hex' is placed in your ModelSim working directory
+        $readmemh("program.hex", uut.imem.mem);
+
+        // Hold Reset Low for 20ns
+        #20;
+        rst_n = 1;
+
+        // Monitor PC, ALU Output, and Registers in ModelSim Console
+        $display("\n--- Starting RV32I Processor Core Simulation ---");
+        $monitor("Time=%0t ns | PC=0x%h | ALU_Out=0x%h | x1=0x%h | x2=0x%h | x3=0x%h",
+                 $time, pc_out, alu_result_out, 
+                 uut.rf.registers[1], uut.rf.registers[2], uut.rf.registers[3]);
+
+        // Run simulation for 200ns
+        #200;
+        $display("--- Simulation Completed Successfully ---");
+        $finish;
+    end
+
+endmodule
